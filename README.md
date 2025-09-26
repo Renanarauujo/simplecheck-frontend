@@ -68,5 +68,3 @@ const API_URL = "http://127.0.0.1:5000/api/todos";
 Se a API estiver em outro endereço, basta alterar esse valor.
 
 ---
-
-👉 Agora você já tem os dois **README.md** prontos e organizados.
