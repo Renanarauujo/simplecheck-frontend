@@ -53,7 +53,7 @@ Basta abrir o arquivo `index.html` no navegador (não precisa servidor extra).
 
 ## 📸 Demonstração
 
-![Demonstração do SimpleCheck](frontend/assets/print.png)
+![Demonstração do SimpleCheck]([frontend/assets/print.png](https://github.com/Renanarauujo/simplecheck-frontend/blob/main/assets/print.png?raw=true))
 
 ---
 
