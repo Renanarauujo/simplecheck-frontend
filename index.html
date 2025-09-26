@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+ <head>
+        <meta charset="UTF-8">
+        <title>SimpleCheck</title>
+        <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        
+        <div class= "logo-container">
+            <img src="assets\simplecheck_image.png" alt="Simple Check Logo" class="logo">
+        </div>
+        <form id="task-form">
+            <input type="text" id="content" placeholder="Add a new task..." required>
+            <input type="date" id="due_date" required>
+            <button type="submit">Add Task</button>
+        </form>       
+        <div class="todo-header">
+            <h2>To Do</h2>
+            <span id="task-counter" class="task-counter">0</span>
+        </div>
+        <ul id="todo-list"></ul>
+        
+        <div class="todo-header">
+            <h2>Completed Tasks</h2>
+            <span id="completed-task-counter" class="task-counter">0</span>
+        </div>
+        <ul id="completed-tasks"></ul>
+    </div>
+
+    <!-- Modal de edição -->
+    <dialog id="editDialog">
+        <h3>Editar tarefa</h3>
+        <input type="text" id="editContent" required>
+        <input type="date" id="editDate" required>
+        
+        <div class="modal-buttons">
+            <button id="cancelEdit" class="btn-cancel">Cancelar
+            </button>
+            <button id="saveEdit" class="btn-save">Salvar
+            </button>
+        </div>
+        </dialog>
+    <script src="app.js"></script>
+
+</body>
+
+</html>

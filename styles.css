@@ -1,0 +1,340 @@
+/* ===========================
+   LAYOUT BASE E CONTAINERS
+   =========================== */
+body {
+    font-family: Arial, sans-serif;
+    background: #0d1b2a; /* fundo azul escuro */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.logo-container {
+    text-align: center; /* centraliza a logo */
+    margin-bottom: 5px;
+}
+
+.logo {
+    max-width: 300px; /* controla o tamanho máximo */
+    height: auto;     /* mantém proporção */
+}
+
+.container {
+    background: #f1f7fb; /* fundo suave */
+    border-radius: 12px;
+    padding: 20px;
+    width: 500px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ===========================
+   TÍTULOS
+   =========================== */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+h2 {
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* ===========================
+   FORMULÁRIO DE TAREFAS
+   =========================== */
+form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+input[type="text"], 
+input[type="date"] {
+    flex: 1;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+button[type="submit"] {
+    background: #4CAF50;
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background: #45a049;
+}
+
+/* ===========================
+   LISTAS DE TAREFAS
+   =========================== */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background: white;
+    display: flex;
+    justify-content: space-between; /* conteúdo à esquerda + botões à direita */
+    align-items: flex-start;
+    margin: 8px 0;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+li.removing {
+    opacity: 0;
+    transform: translateX(-20px); /* animação ao remover */
+}
+
+li.adding {
+    opacity: 0;
+    transform: translateY(-10px); /* animação ao adicionar */
+}
+
+li.adding.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+li:hover {
+    transform: translateY(-2px); /* efeito hover */
+}
+
+/* ===========================
+   CONTEÚDO DA TAREFA
+   =========================== */
+.task-content {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex: 1;
+}
+
+.task-text {
+    display: flex;
+    flex-direction: column; /* título em cima, data embaixo */
+    align-items: flex-start;
+}
+
+.task-title {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Datas */
+.due-date {
+    font-size: 12px;
+    color: rgb(68, 68, 68);
+    margin-top: 2px;
+}
+
+.due-date-today {
+    font-size: 12px;
+    color: green;
+    margin-top: 2px;
+}
+
+.due-date-late {
+    font-size: 12px;
+    color: red;
+    margin-top: 2px;
+}
+
+/* Tarefa concluída (data riscada) */
+.task-completed .due-date,
+.task-completed .due-date-today,
+.task-completed .due-date-late {
+    text-decoration: line-through;
+    color: grey !important;
+}
+
+/* ===========================
+   CHECKBOX ESTILIZADO
+   =========================== */
+input[type="checkbox"] {
+    appearance: none;
+    min-width: 20px;  
+    min-height: 20px; 
+    width: 20px;
+    height: 20px;
+    border: 2px solid #999;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0; 
+}
+
+input[type="checkbox"]:checked {
+    background: #6c63ff;
+    border-color: #6c63ff;
+}
+
+input[type="checkbox"]:checked::after {
+    content: "✔";
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    top: -2px;
+    left: 3px;
+}
+
+/* ===========================
+   BOTÕES DE AÇÃO (EDITAR/EXCLUIR)
+   =========================== */
+.delete-btn, 
+.edit-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.delete-btn {
+    color: #e74c3c;
+}
+
+.delete-btn:hover {
+    color: #c0392b;
+}
+
+.edit-btn {
+    color: #e67e22;
+}
+
+.edit-btn:hover {
+    color: #d35400;
+}
+
+/* ===========================
+   MODAL DE EDIÇÃO (DIALOG)
+   =========================== */
+dialog {
+    border: none;
+    border-radius: 12px;
+    padding: 20px 30px;
+    max-width: 350px;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25);
+    font-family: Arial, sans-serif;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Fundo esmaecido */
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+dialog h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
+}
+
+/* Inputs no modal */
+dialog input {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Botões do modal */
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 5px;
+    margin-right: -20px;
+}
+
+#cancelEdit {
+    background: #f8d7da;
+    color: #721c24;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#cancelEdit:hover {
+    background: #f5c6cb;
+}
+
+#saveEdit {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#saveEdit:hover {
+    background: #45a049;
+}
+
+/* Animação do modal */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* ===========================
+   CONTADOR DE TAREFAS
+   =========================== */
+.task-counter {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
+    border-radius: 50%;
+    background-color: #ccc;
+    color: #7e7e7e;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.todo-header {
+    display: flex;
+    justify-content: space-between; /* título à esquerda, contador à direita */
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.todo-header h2 {
+    margin: 0; /* remove margin padrão */
+}
